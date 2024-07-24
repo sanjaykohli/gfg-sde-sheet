@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int equilibriumPoint(vector<long long> &arr) {
+
+
+        int n = arr.size();
+        
+        long long totalSum = 0;
+        long long leftSum = 0;
+
+        // Calculate the total sum of the array
+        for (int i = 0; i < n; ++i) {
+            totalSum += arr[i];
+        }
+
+        // Traverse the array to find the equilibrium point
+        for (int i = 0; i < n; ++i) {
+            // Right sum is totalSum - leftSum - arr[i]
+            if (leftSum == totalSum - leftSum - arr[i]) {
+                return i + 1;
+            }
+            leftSum += arr[i];
+        }
+
+        return -1; 
+}
+
+int main(){
+
+    vector<long long> arr = {140,15,1,2,3,4,3,2,156};
+
+    int result = equilibriumPoint(arr);
+
+    cout << result << endl;
+
+}
