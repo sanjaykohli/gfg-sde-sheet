@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+#include <algorithm> // for swap
+
+using namespace std;
+
+class Solution {
+public:
+    void reverseInGroups(vector<long long int> &arr, int k) {
+        int n = arr.size();
+        for(int i = 0; i < n; i += k) {
+            int left = i;
+            int right = min(i + k - 1, n - 1);
+            while(left < right) {
+                swap(arr[left], arr[right]);
+                left++;
+                right--;
+            }
+        }
+    }
+};
+
+int main() {
+    Solution solution;
+    vector<long long int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int k = 3;
+    
+    cout << "Original array: ";
+    for (long long int num : arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    solution.reverseInGroups(arr, k);
+    
+    cout << "Reversed in groups of " << k << ": ";
+    for (long long int num : arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
