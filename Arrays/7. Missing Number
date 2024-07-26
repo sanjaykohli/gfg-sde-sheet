@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int missingNumber(int n, vector<int>& arr) {
+
+        int totalSum = n * (n + 1) / 2;
+        int currentSum = 0;
+        
+        for (int num : arr) {
+            currentSum += num;
+        }
+        return totalSum - currentSum;
+    }
+
+int main(){
+
+    vector<int> arr = {1,2,3,5,9,6,7,8,11,4};
+    int n = 11;
+    cout << missingNumber(n, arr) << endl;
+    return 0;
+
+}
