@@ -1,1 +1,46 @@
 
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class Solution {
+public:
+    // Function to compare two strings by their concatenated values
+    static bool compare(const string &a, const string &b) {
+        return a + b > b + a;
+    }
+
+    // The main function that returns the arrangement with the largest value as string
+    string printLargest(int n, vector<string> &arr) {
+        // Sort the array using the custom comparator
+        sort(arr.begin(), arr.end(), compare);
+
+        // If the largest element is "0", the result is "0"
+        if (arr[0] == "0") {
+            return "0";
+        }
+
+        // Concatenate the sorted strings to form the largest number
+        string result;
+        for (const string &s : arr) {
+            result += s;
+        }
+
+        return result;
+    }
+};
+
+int main() {
+    // Define input here
+    int n = 3;
+    vector<string> arr = {"54", "546", "548", "4","99","97"};
+
+    // Create an instance of the Solution class and get the result
+    Solution ob;
+    string ans = ob.printLargest(n, arr);
+
+    // Output the result
+    cout << ans << endl;
+
+    return 0;
+}
