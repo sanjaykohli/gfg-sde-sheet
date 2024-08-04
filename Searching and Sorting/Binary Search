@@ -1,1 +1,20 @@
+def binarysearch(self, arr, k):
+    # Code Here
+    
+    l, h = 0, len(arr)-1
 
+    while(l <= h):
+        
+        mid = l + (h-l)//2
+        
+        if(arr[mid] > k):
+            h = mid-1
+            
+        elif(arr[mid] < k):
+            l = mid+1
+            
+        else:
+            return mid
+            
+    
+    return -1
