@@ -1,0 +1,17 @@
+def getFirstSetBit(self,n):    
+    
+    if(n == 0):
+        return -1
+        
+    p = 1
+    
+    while(n>0):
+        
+        if(n&1):
+            return p
+            
+            
+        p += 1
+        n >>= 1
+        
+    return -1
