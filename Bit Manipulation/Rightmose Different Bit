@@ -1,0 +1,16 @@
+def posOfRightMostDiffBit(self,m,n):
+    #Your code here
+    
+
+    xor = m^n
+    pos = 1
+    
+    if xor == 0:
+        return -1
+        
+    while(xor & 1) == 0:
+        xor >>= 1
+        pos += 1
+    
+    return pos
+        
