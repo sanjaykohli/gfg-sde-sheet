@@ -1,0 +1,23 @@
+class Solution:
+    def isValid(self, n : int, sweetness : List[int]) -> int:
+        # code here
+        
+        total_sum = sum(sweetness)
+        
+        if total_sum % 3 != 0:
+            return 0
+            
+        john_sum = total_sum // 3
+        bob_sum = 2*john_sum
+            
+            
+        dp =  [False] * (bob_sum+1)
+        dp[0] = True
+        
+        
+        for s in sweetness:
+            for i in range(bob_sum, s-1, -1):
+                dp[i] = dp[i] or dp[i-s]
+                
+        return 1 if dp[john_sum] and dp[bob_sum] else 0
+        
